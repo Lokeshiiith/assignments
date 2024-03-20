@@ -9,5 +9,19 @@ There is no automated test for this one, this is more for you to understand time
 */
 
 function calculateTime(n) {
-    return 0.01;
+    // Your code here
+    let start = Date.now();
+    let sum = 0;
+    for (let i = 1; i <= n; i++) {
+        sum += i;
+    }
+    let end = Date.now();
+    return (end - start);
+
 }
+
+let n;
+n = 100000;
+// how to get value of n from user in terminal
+// cin >> n; like in javascript
+console.log(calculateTime(parseInt(n)));

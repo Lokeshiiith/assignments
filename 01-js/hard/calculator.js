@@ -16,6 +16,44 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+   add(num) {
+    this.result += num;
+  }
+  subtract(num) {
+    this.result -= num;
+  }
+  multiply(num) {
+    this.result *= num;
+  }
+  divide(num) {
+    this.result /= num;
+  }
+  clear() {
+    this.result = 0;
+  }
+  getResult() {
+    return this.result;
+  }
+  calculate(str)
+  {
+    let num = 0;
+    let stack = [];
+    for (let i = 0; i < str.length; i++)
+    {
+      if (str[i] == ' ')
+        continue;
+      if (str[i] >= '0' && str[i] <= '9')
+      {
+        stack.push(parseInt(str[i]));
+      }
+      if(str[i])
+    
+  }
+
+}
 
 module.exports = Calculator;

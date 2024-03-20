@@ -9,17 +9,20 @@ function isAnagram(str1, str2) {
   if (str1.length !== str2.length) {
     return false;
   }
-
+  str1 = str1.replace(/[^a-z0-9]/gi, '').toLowerCase();
+  str2 = str2.replace(/[^a-z0-9]/gi, '').toLowerCase();
   // Make array for both strings and fill it with 0
-  let arr1 = Array(256).fill(0);
-  let arr2 = Array(256).fill(0);
+  let charCount = new Array(256).fill(0);
 
   for (let i = 0; i < str1.length; i++) {
-    arr1[str1.charCodeAt(i)]++;
-    arr2[str2.charCodeAt(i)]++;
+    
+    charCount[str1.charCodeAt(i)]++;
+    charCount[str2.charCodeAt(i)]--;
   }
-  if(arr1.toString() !== arr2.toString()) {
-    return false;
+  for (let i = 0; i < 256; i++) {
+    if (charCount[i] != 0) {
+      return false;
+    }
   }
   return true;
 }

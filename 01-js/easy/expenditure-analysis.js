@@ -1,6 +1,8 @@
 /*
-  Implement a function `calculateTotalSpentByCategory` which takes a list of transactions as parameter
-  and return a list of objects where each object is unique category-wise and has total price spent as its value.
+  Implement a function `calculateTotalSpentByCategory`
+   which takes a list of transactions as parameter
+  and return a list of objects where each object is 
+  unique category-wise and has total price spent as its value.
   transactions is an array where each
   Transaction - an object like 
         {
@@ -14,7 +16,28 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  // Write code here
+
+  let mp = new Map();
+  for (let i = 0; i < transactions.length; i++)
+  {
+    let category = transactions[i].category;
+    let price = transactions[i].price;
+    if (mp.has(category))
+    {
+      mp.set(category, mp.get(category) + price);
+    }
+    else
+    {
+      mp.set(category, price);
+    }
+  }
+  let ans = [];
+  for (let [key, val] of mp)
+  {
+    ans.push({category: key, totalSpent: val});
+    }
+  return ans;
 }
 
 module.exports = calculateTotalSpentByCategory;
